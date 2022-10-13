@@ -1,6 +1,7 @@
 package w.igor.server.service.implementation;
 
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import w.igor.server.repo.ServerRepo;
 import w.igor.server.service.ServerService;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Collection;
 import java.util.Random;
@@ -37,6 +39,7 @@ public class ServerServiceImplementation implements ServerService {
         return serverRepo.save(server);
     }
 
+    @SneakyThrows
     @Override
     public Server ping(String ipAddress) {
         log.info("Pinging server IP: {}", ipAddress);

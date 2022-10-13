@@ -2,6 +2,7 @@ package w.igor.server.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import w.igor.server.model.enumeration.Status;
 
 import javax.persistence.*;
@@ -11,11 +12,11 @@ import static javax.persistence.GenerationType.AUTO;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Server {
 
-    @Id @GeneratedValue(strategy = AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(unique = true)
     @NotEmpty(message = "IP Address cannot be empty nor null!!")
